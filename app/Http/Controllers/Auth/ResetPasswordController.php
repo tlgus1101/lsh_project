@@ -1,30 +1,36 @@
 <?php
-
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Foundation\Auth\ResetsPasswords;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
-class ResetPasswordController extends Controller
+
+class ReSetPasswordController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Password Reset Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller is responsible for handling password reset requests
-    | and uses a simple trait to include this behavior. You're free to
-    | explore this trait and override any methods you wish to tweak.
-    |
-    */
+    public function index(Request $request)
+    {
+      $data = DB::table('user')
+        ->where('password_token',$request->input('token'))
+        ->first();
 
-    use ResetsPasswords;
+      if(strtotime(date('y-m-d h:i:s')) - strtotime($data->password_token_enrollment_date) > 1800){
+        echo "<script> alert('잘못된 접근입니다.'); </script>";
+        return redirect('/verify');
+      }
+        return view('auth.passwords.reset',['data' => $data]);
+    }
 
-    /**
-     * Where to redirect users after resetting their password.
-     *
-     * @var string
-     */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    public function update(Request $request)
+    {
+      $result= DB::table('user')
+        ->where('password_token',$request->input('token'))
+        ->update([
+          'password' => Hash::make($request->input('password'))
+          ]);
+      return redirect('/login');
+    }
 }

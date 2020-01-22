@@ -1,0 +1,149 @@
+.space_or {
+    position: relative;
+    height: 40px;
+    margin-bottom: 8px;
+}
+
+.space_or:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.08);
+}
+
+.space_or span {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    z-index: 10;
+    width: 50px;
+    height: 40px;
+    margin: 0 0 0 -25px;
+    background: #fff;
+    font-size: 14px;
+    line-height: 40px;
+    color: rgba(0, 0, 0, 0.38);
+    text-align: center;
+}
+
+@media (min-width: 992px) {
+    .join-row {
+        max-width: 550px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+
+.login-info-text {
+    font-size: 75%;
+    vertical-align: text-bottom;
+}
+
+.login-error-info-text {
+    color: red;
+    font-size: 75%;
+    vertical-align: text-bottom;
+}
+
+.logo-height {
+  height: 2rem;
+}
+
+@media (min-width: 992px) {
+    .login-row {
+        max-width: 550px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+
+.icon-ic_login_google {
+    vertical-align: bottom;
+    height: 1rem;
+    content: url("//cloudfront.mo-zip.co.kr/mo-zip/images/google_white.svg");
+}
+
+.icon-ic_login_fb {
+    vertical-align: top;
+    height: .8rem;
+    content: url("//cloudfront.mo-zip.co.kr/mo-zip/images/facebook_white.svg");
+}
+
+.icon-ic_login_kakaotalk {
+    vertical-align: top;
+    height: .9rem;
+    content: url("//cloudfront.mo-zip.co.kr/mo-zip/images/kakao_white.svg");
+}
+
+.icon-ic_login_naver {
+    height: .7rem;
+    content: url("//cloudfront.mo-zip.co.kr/mo-zip/images/naver_white.svg");
+}
+
+.btn_naver {
+    background: rgb(40, 209, 17);
+    width: 100%;
+    border: none;
+}
+
+.btn_naver a {
+    color: #ffffff;
+}
+
+.btn_naver:hover {
+    background: rgb(38, 135, 13);
+    width: 100%;
+    border: none;
+}
+
+.btn_kakao {
+    background: rgb(250, 205, 4);
+    width: 100%;
+    border: none;
+}
+
+.btn_kakao a {
+    color: #ffffff;
+}
+
+.btn_kakao:hover {
+    background: rgb(185, 148, 4);
+    width: 100%;
+    border: none;
+}
+
+.btn_fb {
+    background: rgb(59, 89, 151);
+    width: 100%;
+    border: none;
+}
+
+.btn_fb a {
+    color: #ffffff;
+}
+
+.btn_fb:hover {
+    background: rgb(51, 51, 105);
+    width: 100%;
+    border: none;
+}
+
+.btn_google {
+    background: #d93025;
+    width: 100%;
+    border: none;
+}
+
+.btn_google a {
+    color: #ffffff;
+}
+
+.btn_google:hover {
+    background: #97221b;
+    width: 100%;
+    border: none;
+}

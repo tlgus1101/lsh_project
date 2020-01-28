@@ -65,7 +65,18 @@ class DetailController extends Controller
                 </div>
               </div>
             </div>";
-
+        
+        $list = "";
+        $list_temp = "";
+        $str_list = "<div class='room_idx' style='margin: 5px'><div class='room'>%s</div></div>";
+        
+        $str_list_de = "<div class='room'>
+                        <input class='room' type='radio' name='room'
+                               id='room_idx{{ %s }}' value='%s'/>
+                            <label for='room_idx{{ %s }}'>%s</label>
+                       </div>";
+      
+                                
       $renting =
         "<div class=\"col-6 p-2 good-card-price-section-left\">
                     <div class=\"pb-2 good-card-price-title\">대실</div>
@@ -153,6 +164,7 @@ class DetailController extends Controller
 
           foreach ($room_product as $key => $value2) {
             if ($diff_date <= $value2->count) {
+
               if ($value2->room_product_sale_type == "대실") {
                 $datas_pro .= sprintf($renting
                   , $value2->room_renting_use_time
@@ -181,7 +193,11 @@ class DetailController extends Controller
               }
             }
           }
-
+          $list_temp .= sprintf($str_list_de
+                                       , $value->room_idx
+                                       , $value->room_idx
+                                       , $value->room_idx
+                                       , $value->room_name);
           $datas_rs .= sprintf($str
             , $datas_img
             , $value->room_name
@@ -199,7 +215,8 @@ class DetailController extends Controller
             </div>
                             </div>";
       }
-      return response()->json(['datas' => $datas_rs]);
+      $list.= sprintf($str_list,$list_temp);
+      return response()->json(['datas' => $datas_rs ,'list' => $list]);
     }
 
     return view('product.detail', [
@@ -296,5 +313,99 @@ class DetailController extends Controller
 
     return response()->json(['datas' => $datas_rs, 'address' => $partner->partner_businessman_address, 'name' => $partner->name]);
   }
+ public function timeList(Request $request){
+        $str = '<tr align="center">
+                    <td>
+                        <a class="btn-link" >
+                        <span> %s </span>
+                        </a>
+                    </td>
+                   <td width="70%%">
+                        <div class="select_time" style="margin: 5px">
+                            %s
+                        </div>
+                    </td>
+                </tr>';
+     
+        $btn_list = "";
+        $datas_rs = "";
+        $btn = '<div class="time">
+                        <input class="time" type="checkbox" name="time"
+                                id="time%s" onclick="timeclick(%s)">
+                            <label for="time%s"> %s:00 </label>
+                </div>';
+   
 
+        $datas_facilities = "";
+        $datas_rule = "";
+
+        $partner = DB::table('partner')
+          ->where('id', $request->input('id'))
+          ->first();
+
+        $in_date =$request->input('year')."-".$request->input('month')."-".$request->input('date');
+        $room = DB::table('room')
+            ->where('room_idx', $request->input('idx'))
+            ->first();
+        
+//        if ($request->input('type') == 1) {//대실일경우
+
+     DB::enableQueryLog();
+            $room_product = DB::table('room_product')
+                ->join('room', 'room.room_idx', '=', 'room_product.room_idx')
+                ->where('room.room_idx', $request->input('room_idx'))
+                ->whereDate('room_product_start_date', $in_date)
+                ->where('room_product.room_product_sale_type', "대실")
+                ->groupBy('room.room_idx')
+     ->first();//->dd(DB::getQueryLog());
+          
+//        } else if ($request->input('type') == 2) {//숙박일 경우
+//            $room_product = DB::table('room_product')
+//                ->select('*', DB::raw('SUM(room_product_sale_price) as sum_price, count(*) as count '))
+//                ->join('room', 'room.room_idx', '=', 'room_product.room_idx')
+//                ->where('room.room_idx', $request->input('idx'))
+//                ->whereBetween('room_product_start_date', [$in_date, $out_date])
+//                ->where('room_product.room_product_sale_type', "숙박")
+//                ->groupBy('room.room_idx')
+//                ->first();//->dd(DB::getQueryLog());
+//        } else {
+//            $room_product = DB::table('room_product')
+//                ->select('*', DB::raw('SUM(room_product_sale_price) as sum_price, count(*) as count '))
+//                ->join('room', 'room.room_idx', '=', 'room_product.room_idx')
+//                ->where('room.room_idx', $request->input('idx'))
+//                ->whereDate('room_product_start_date', $in_date)
+//                ->where('room_product.room_product_sale_type', "대여")
+//                ->groupBy('room.room_idx')
+//                ->first();//->dd(DB::getQueryLog());
+//            $out_date = $request->input('start');
+//        }
+     
+            for ($i = $room_product->room_renting_use_start_date; $i < $room_product->room_renting_use_end_date; $i++){
+                if($i < 10){
+            $btn_list .= sprintf($btn
+                                                   , "0".$i
+                                                                , "0".$i
+                                                                , "0".$i
+                                                                 , "0".$i);
+                }else{
+                    $btn_list .= sprintf($btn
+                                                                  , $i
+                                                                  , $i
+                                                                  , $i
+                                                                   , $i);
+                }
+              
+            }
+            
+            $datas_rs .= sprintf($str
+              , $room_product->room_name
+                                 ,$btn_list
+                                 ,$btn_list
+                                 
+            );
+     
+ 
+         return response()->json(['datas' => $datas_rs]);
+    }
+    
 }

@@ -25,6 +25,7 @@ class IndexController extends Controller
             ->where('community_enrollment_date','>' ,$end_date)
             //->orderBy('community_enrollment_date','desc')
             ->inRandomOrder()
+            ->take(10)
             ->get();//->dd(DB::getQueryLog());
 
         $cate = array();
@@ -35,6 +36,7 @@ class IndexController extends Controller
                 $contents[$data->community_category_idx] = DB::table('community')
                     ->where('community_category', 'like', "%," . $data->community_category_idx . ",%")
                     ->inRandomOrder()
+                    ->take(10)
                     ->get();
 
                 if (count($contents[$data->community_category_idx]) > 0) {

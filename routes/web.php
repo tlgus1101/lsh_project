@@ -98,6 +98,7 @@ Route::prefix('wishlist')->middleware('https')->group(function () {
 Route::prefix('detail')->middleware('https')->group(function () {
     Route::get('/', 'Product\DetailController@index');
     Route::post('/info', 'Product\DetailController@info');
+    Route::post('/timeList', 'Product\DetailController@timeList');
 });
 
 Route::post('/store', 'User\UserController@store');

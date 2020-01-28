@@ -2,176 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="65336764-0790-4723-bc92-d70a2ba52dce" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/js/daterangepicker2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/lsh_project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/lsh_project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/font.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/jquery-ui.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/main_color.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/modal_style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/r_style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/reset.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font/S-Core_Dream_OTF/SCDream1.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font/S-Core_Dream_OTF/SCDream2.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font/S-Core_Dream_OTF/SCDream3.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font/S-Core_Dream_OTF/SCDream4.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font/S-Core_Dream_OTF/SCDream5.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font/S-Core_Dream_OTF/SCDream6.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font/S-Core_Dream_OTF/SCDream7.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font/S-Core_Dream_OTF/SCDream8.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font/S-Core_Dream_OTF/SCDream9.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font/S-Core_Dream_OTF/web_font/README.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font/S-Core_Dream_OTF/web_font/S-CoreDream.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font/S-Core_Dream_OTF/web_font/S-CoreDream.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font/S-Core_Dream_OTF/web_font/S-CoreDream.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font/S-Core_Dream_OTF/web_font/S-CoreDream.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font/S-Core_Dream_OTF/web_font/S-CoreDream.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font/S-Core_Dream_OTF/에스코어 드림_라이선스.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font/iconsmind-s/README.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font/iconsmind-s/config.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font/iconsmind-s/css/animation.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font/iconsmind-s/css/iconsminds-codes.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font/iconsmind-s/css/iconsminds-embedded.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font/iconsmind-s/css/iconsminds-ie7-codes.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font/iconsmind-s/css/iconsminds-ie7.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font/iconsmind-s/css/iconsminds.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font/iconsmind-s/demo.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font/iconsmind-s/font/iconsminds.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font/iconsmind-s/font/iconsminds.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font/iconsmind-s/font/iconsminds.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font/iconsmind-s/font/iconsminds.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font/iconsmind-s/font/iconsminds.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font/iconsmind/demo-files/demo.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font/iconsmind/demo-files/demo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font/iconsmind/demo.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font/iconsmind/fonts/icomoon.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font/iconsmind/fonts/icomoon.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font/iconsmind/fonts/icomoon.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font/iconsmind/fonts/icomoon.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font/iconsmind/selection.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font/iconsmind/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font/simple-line-icons/LICENSE.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font/simple-line-icons/css/simple-line-icons.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font/simple-line-icons/fonts/Simple-Line-Icons.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font/simple-line-icons/fonts/Simple-Line-Icons.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font/simple-line-icons/fonts/Simple-Line-Icons.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font/simple-line-icons/fonts/Simple-Line-Icons.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/font/simple-line-icons/fonts/Simple-Line-Icons.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/footer_logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/header_img.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/ico/back.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/ico/check.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/ico/check1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/ico/check_b.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/ico/close.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/ico/date.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/ico/icon_bath.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/ico/icon_hairdryer.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/ico/icon_refrigerator.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/ico/icon_tv.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/ico/left.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/ico/right.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/ico/select_arrow.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/jquery-icon/ui-icons_444444_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/jquery-icon/ui-icons_555555_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/jquery-icon/ui-icons_777620_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/jquery-icon/ui-icons_777777_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/jquery-icon/ui-icons_cc0000_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/jquery-icon/ui-icons_ffffff_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/m_room_img.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/motel_img.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/room_img.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/room_img_basic.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/common.script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/jquery-1.12.4.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/jquery-ui.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/r_app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/Chart.bundle.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/Sortable.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/bootstrap-datepicker.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/bootstrap-notify.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/bootstrap-tagsinput.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/bootstrap.bundle.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/chartjs-plugin-datalabels.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/ckeditor5-build-classic/LICENSE.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/ckeditor5-build-classic/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/ckeditor5-build-classic/ckeditor.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/ckeditor5-build-classic/ckeditor.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/ckeditor5-build-classic/translations/ar.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/ckeditor5-build-classic/translations/ast.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/ckeditor5-build-classic/translations/bg.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/ckeditor5-build-classic/translations/ca.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/ckeditor5-build-classic/translations/cs.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/ckeditor5-build-classic/translations/da.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/ckeditor5-build-classic/translations/de.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/ckeditor5-build-classic/translations/el.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/ckeditor5-build-classic/translations/en-au.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/ckeditor5-build-classic/translations/eo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/ckeditor5-build-classic/translations/es.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/ckeditor5-build-classic/translations/et.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/ckeditor5-build-classic/translations/eu.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/ckeditor5-build-classic/translations/fa.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/ckeditor5-build-classic/translations/fi.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/ckeditor5-build-classic/translations/fr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/ckeditor5-build-classic/translations/gl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/ckeditor5-build-classic/translations/gu.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/ckeditor5-build-classic/translations/hr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/ckeditor5-build-classic/translations/hu.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/ckeditor5-build-classic/translations/it.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/ckeditor5-build-classic/translations/ja.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/ckeditor5-build-classic/translations/km.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/ckeditor5-build-classic/translations/kn.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/ckeditor5-build-classic/translations/ko.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/ckeditor5-build-classic/translations/ku.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/ckeditor5-build-classic/translations/nb.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/ckeditor5-build-classic/translations/ne.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/ckeditor5-build-classic/translations/nl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/ckeditor5-build-classic/translations/no.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/ckeditor5-build-classic/translations/oc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/ckeditor5-build-classic/translations/pl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/ckeditor5-build-classic/translations/pt-br.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/ckeditor5-build-classic/translations/pt.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/ckeditor5-build-classic/translations/ro.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/ckeditor5-build-classic/translations/ru.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/ckeditor5-build-classic/translations/si.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/ckeditor5-build-classic/translations/sk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/ckeditor5-build-classic/translations/sq.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/ckeditor5-build-classic/translations/sv.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/ckeditor5-build-classic/translations/tr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/ckeditor5-build-classic/translations/tt.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/ckeditor5-build-classic/translations/ug.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/ckeditor5-build-classic/translations/uk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/ckeditor5-build-classic/translations/zh-cn.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/ckeditor5-build-classic/translations/zh.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/cropper.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/datatables.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/dropzone.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/fullcalendar-ko.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/fullcalendar.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/jquery-3.3.1.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/jquery.barrating.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/jquery.contextMenu.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/jquery.minicolors.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/jquery.minicolors.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/landing-page/headroom.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/landing-page/jQuery.headroom.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/landing-page/jquery.autoellipsis.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/landing-page/jquery.scrollTo.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/moment.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/mousetrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/mousetrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/nouislider.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/owl.carousel.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/perfect-scrollbar.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/progressbar.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/quill.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/select2.full.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/select2.ko.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/slick.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/typeahead.bundle.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/video.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/vendor/videojs-youtube.min.js" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/daterangepicker2.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/vue.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Product/DetailController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Product/DetailController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/calendar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/daterangepicker2.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/daterangepicker2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/product/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/product/detail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/BDTBj9JEetWPfRdvMirtNkEAKIYNsbwUZm7RebIE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/YXMdo34sJPWqp4GACeF8gYLu0xwSV9YnwDpWP11d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/150f66435897fc7ed0855b35eda7206d4feeb852.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/150f66435897fc7ed0855b35eda7206d4feeb852.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/laravel-2019-11-12.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/laravel-2019-11-13.log" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -305,12 +149,22 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/css" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/js" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/css" />
       <recent name="$PROJECT_DIR$/public/js" />
     </key>
   </component>
@@ -346,6 +200,19 @@
       <workItem from="1579681844867" duration="43000" />
       <workItem from="1579682313439" duration="208000" />
       <workItem from="1579682725290" duration="236000" />
+      <workItem from="1579683195839" duration="479000" />
+      <workItem from="1579683794662" duration="3246000" />
+      <workItem from="1579740746305" duration="1486000" />
+      <workItem from="1579742545579" duration="334000" />
+      <workItem from="1579743414590" duration="2800000" />
+      <workItem from="1579746686625" duration="531000" />
+      <workItem from="1579752576645" duration="1136000" />
+      <workItem from="1579753997382" duration="608000" />
+      <workItem from="1579755204418" duration="6326000" />
+      <workItem from="1580171732612" duration="42000" />
+      <workItem from="1580171977712" duration="70000" />
+      <workItem from="1580172848616" duration="404000" />
+      <workItem from="1580173612369" duration="642000" />
     </task>
     <servers />
   </component>
@@ -356,6 +223,10 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="1398" y="476" key="#phpunit.xml" timestamp="1580173636252">
+      <screen x="0" y="23" width="2560" height="1353" />
+    </state>
+    <state x="1398" y="476" key="#phpunit.xml/-1920.228.1920.1057/0.23.2560.1353@0.23.2560.1353" timestamp="1580173636252" />
     <state width="1358" height="271" key="GridCell.Tab.0.bottom" timestamp="1579679218708">
       <screen x="0" y="23" width="2560" height="1353" />
     </state>
@@ -380,5 +251,9 @@
       <screen x="0" y="23" width="2560" height="1353" />
     </state>
     <state x="535" y="584" key="com.intellij.ide.util.TipDialog/-1920.228.1920.1057/0.23.2560.1353@0.23.2560.1353" timestamp="1579679868110" />
+    <state x="990" y="590" width="667" height="486" key="find.popup" timestamp="1579755914562">
+      <screen x="0" y="23" width="2560" height="1353" />
+    </state>
+    <state x="990" y="590" width="667" height="486" key="find.popup/-1920.228.1920.1057/0.23.2560.1353@0.23.2560.1353" timestamp="1579755914562" />
   </component>
 </project>

@@ -9,13 +9,13 @@ $( document ).ready(function() {
         while(!u) {
             if(daysArray[r] == calMonthArray[0].weekday) { u = true }
             else {
-                calendar.datesBody.append('<div class="blank"></div>');
+                calendar.datesBody.append('<div class="blank" disabled="true"></div>');
                 r++;
             }
         }
         for(var cell=0;cell<42-r;cell++) { // 42 date-cells in calendar
             if(cell >= calMonthArray.length) {
-                calendar.datesBody.append('<div class="blank"></div>');
+                calendar.datesBody.append('<div class="blank" disabled="true"></div>');
             } else {
                 var shownDate = calMonthArray[cell].day;
                 // Later refactiroing -- iter_date not needed after "today" is found
@@ -35,7 +35,7 @@ $( document ).ready(function() {
         }
 
         // var color = o[passed_month];
-        calendar.calHeader.find("h2").text(i[passed_month]+" "+passed_year);
+        calendar.calHeader.find("h2").text(passed_year+"년 "+i[passed_month]);
         //.css("background-color",color)
         //.find("h2").text(i[passed_month]+" "+year);
 
@@ -50,6 +50,7 @@ $( document ).ready(function() {
         clickedElement.on("click", function(){
             clicked = $(this);
             if (clicked.hasClass('past-date')) { return; }
+            if (clicked.hasClass('blank')) { return; }
             var whichCalendar = calendar.name;
             console.log(whichCalendar);
             // Understading which element was clicked;
@@ -150,9 +151,9 @@ $( document ).ready(function() {
     //var t=2013;
     //var n=9;
     var r = [];
-    var i = ["JANUARY","FEBRUARY","MARCH","APRIL","MAY",
-        "JUNE","JULY","AUGUST","SEPTEMBER","OCTOBER",
-        "NOVEMBER","DECEMBER"];
+    var i = ["1월","2월","3월","4월","5월",
+        "6월","7월","8월","9월","10월",
+        "11월","12월"];
     var daysArray = ["일","월","화",
         "수","목","금","토"];
     var o = ["#16a085","#1abc9c","#c0392b","#27ae60",

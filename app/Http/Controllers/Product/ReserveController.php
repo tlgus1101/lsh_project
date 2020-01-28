@@ -15,9 +15,8 @@ class ReserveController extends Controller
         DB::enableQueryLog();
         $now_date = date('Y-m-d');
 
-        $in_date = $request->input('start');
-        $out_date = $request->input('end');
-        $out_date = date('Y-m-d', strtotime($out_date . "-1 day"));
+        $in_date = $request->input('year')."-".$request->input('month')."-".$request->input('date');
+        $out_date = $request->input('year')."-".$request->input('month')."-".$request->input('date');
 
         if (!$in_date) {
             $in_date = $now_date;
@@ -29,26 +28,7 @@ class ReserveController extends Controller
             ->where('room_idx', $request->input('idx'))
             ->first();
 
-        if ($request->input('type') == 1) {//대실일경우
-            $room_product = DB::table('room_product')
-                ->select('*', DB::raw('SUM(room_product_sale_price) as sum_price, count(*) as count '))
-                ->join('room', 'room.room_idx', '=', 'room_product.room_idx')
-                ->where('room.room_idx', $request->input('idx'))
-                ->whereDate('room_product_start_date', $in_date)
-                ->where('room_product.room_product_sale_type', "대실")
-                ->groupBy('room.room_idx')
-                ->first();//->dd(DB::getQueryLog());
-            $out_date = $request->input('start');
-        } else if ($request->input('type') == 2) {//숙박일 경우
-            $room_product = DB::table('room_product')
-                ->select('*', DB::raw('SUM(room_product_sale_price) as sum_price, count(*) as count '))
-                ->join('room', 'room.room_idx', '=', 'room_product.room_idx')
-                ->where('room.room_idx', $request->input('idx'))
-                ->whereBetween('room_product_start_date', [$in_date, $out_date])
-                ->where('room_product.room_product_sale_type', "숙박")
-                ->groupBy('room.room_idx')
-                ->first();//->dd(DB::getQueryLog());
-        } else {
+//        if ($request->input('type') == 1) {//대실일경우
             $room_product = DB::table('room_product')
                 ->select('*', DB::raw('SUM(room_product_sale_price) as sum_price, count(*) as count '))
                 ->join('room', 'room.room_idx', '=', 'room_product.room_idx')
@@ -56,9 +36,28 @@ class ReserveController extends Controller
                 ->whereDate('room_product_start_date', $in_date)
                 ->where('room_product.room_product_sale_type', "대여")
                 ->groupBy('room.room_idx')
-                ->first();//->dd(DB::getQueryLog());
-            $out_date = $request->input('start');
-        }
+        ->first();//->dd(DB::getQueryLog());
+            $out_date = $in_date;
+//        } else if ($request->input('type') == 2) {//숙박일 경우
+//            $room_product = DB::table('room_product')
+//                ->select('*', DB::raw('SUM(room_product_sale_price) as sum_price, count(*) as count '))
+//                ->join('room', 'room.room_idx', '=', 'room_product.room_idx')
+//                ->where('room.room_idx', $request->input('idx'))
+//                ->whereBetween('room_product_start_date', [$in_date, $out_date])
+//                ->where('room_product.room_product_sale_type', "숙박")
+//                ->groupBy('room.room_idx')
+//                ->first();//->dd(DB::getQueryLog());
+//        } else {
+//            $room_product = DB::table('room_product')
+//                ->select('*', DB::raw('SUM(room_product_sale_price) as sum_price, count(*) as count '))
+//                ->join('room', 'room.room_idx', '=', 'room_product.room_idx')
+//                ->where('room.room_idx', $request->input('idx'))
+//                ->whereDate('room_product_start_date', $in_date)
+//                ->where('room_product.room_product_sale_type', "대여")
+//                ->groupBy('room.room_idx')
+//                ->first();//->dd(DB::getQueryLog());
+//            $out_date = $request->input('start');
+//        }
 
         $partner = DB::table('partner')
             ->where('id', $room_product->id)
@@ -69,21 +68,21 @@ class ReserveController extends Controller
             ->first();
 
         $selectTime = [];
-        if ($request->input('type') != 2) {
-            $reservations = "";
-            if ($request->input('type') == 1) {
-                $reservations = DB::table('reservation')
-                    ->where('room_product_idx', $room_product->room_product_idx)
-                    ->whereDate('reservation_use_start_date', $in_date)
-                    ->where('reservation_type', "대실")
-                    ->get();
-            } else if ($request->input('type') == 3) {
+//        if ($request->input('type') != 2) {
+//            $reservations = "";
+//            if ($request->input('type') == 1) {
+//                $reservations = DB::table('reservation')
+//                    ->where('room_product_idx', $room_product->room_product_idx)
+//                    ->whereDate('reservation_use_start_date', $in_date)
+//                    ->where('reservation_type', "대실")
+//                    ->get();
+//            } else if ($request->input('type') == 3) {
                 $reservations = DB::table('reservation')
                     ->where('room_product_idx', $room_product->room_product_idx)
                     ->whereDate('reservation_use_start_date', $in_date)
                     ->where('reservation_type', "대여")
                     ->get();
-            }
+//            }
             if ($reservations) {
                 foreach ($reservations as $reservation) {
                     $start = date("H", strtotime($reservation->reservation_use_start_date)) + 1 - 1;
@@ -99,7 +98,7 @@ class ReserveController extends Controller
                     array_push($selectTime, $i);
                 }
             }
-        }
+//        }
 
         $extras = DB::table('room_extra')
             ->where('id', $room->id)
@@ -109,17 +108,12 @@ class ReserveController extends Controller
             ->where('id', $room->id)
             ->orderBy("room_people_add_name")
             ->get();
-        if ($request->input('type') != 2) {
-            return view('product.reserve', [
-                'partner' => $partner, 'contract' => $contract_db, 'room' => $room_product, 'extras' => $extras, 'addpeople' => $addpeople, 'selectTime' => $selectTime
-                , 'in' => $in_date, 'out' => $out_date, 'type' => $request->input('type')
+  
+            return view('other.reserve', [
+                'partner' => $partner, 'contract' => $contract_db, 'room' => $room_product, 'extras' => $extras, 'addpeople' => $addpeople,
+                 'in' => $in_date, 'out' => $out_date, 'start' => $request->input('start') , 'end' => $request->input('end')
             ]);
-        } else {
-            return view('product.reserve', [
-                'partner' => $partner, 'contract' => $contract_db, 'room' => $room_product, 'extras' => $extras, 'addpeople' => $addpeople, 'selectTime' => $selectTime
-                , 'in' => $in_date, 'out' => $request->input('end'), 'type' => $request->input('type')
-            ]);
-        }
+    
     }
 
 

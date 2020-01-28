@@ -137,6 +137,8 @@
                             <tr align="center">
                                 <td scope="col">대관장소</td>
                                 <td scope="col">시간</td>
+                                <input type="hidden" id="t_first" value="-1">
+                                <input type="hidden" id="t_second" value="-1">
                             </tr>
                             </thead>
                             <tbody id="timeList_body">
@@ -173,15 +175,15 @@
                         <p class="bul-mark2">각 공간명을 클릭하시면 시설정보를 확인하실 수 있습니다.</p>
                         <p class="bul-mark2">
                             시간을 연속으로 선택 하여 주세요.
-                            <strong class="color-black">(오전 3타임, 오후 4타임, 야간2타임)</strong>
+                            <strong class="color-black">(시작시간 종료시간을 선택해 주세요)</strong>
                         </p>
+                        <input class="btn" type="button" value="대여하기" disabled="true" onclick="Rent()" id="rentBtn">
                     </div>
                 </div>
             </div> <!-- End Row -->
         </div> <!-- End Calendar -->
     </div> <!-- End Container -->
 
-<div id="app"></div>
 
 @endsection
 
@@ -201,21 +203,21 @@
 
     <script>
 
-        // 아래 내용은 컴파일러가 필요합니다
-        new Vue({
-            el : '#app',
-            data : {
-                per:{
-                    name : '이시현',
-                    age : 26
-                }
-            },
-            methods : {
-                nextYear:function () {
-                    return this.per.name + '는 내년에 '+ (this.per.age +1) +"살 입니다.";
-                }
-            }
-        })
+        // // 아래 내용은 컴파일러가 필요합니다
+        // new Vue({
+        //     el : '#app',
+        //     data : {
+        //         per:{
+        //             name : '이시현',
+        //             age : 26
+        //         }
+        //     },
+        //     methods : {
+        //         nextYear:function () {
+        //             return this.per.name + '는 내년에 '+ (this.per.age +1) +"살 입니다.";
+        //         }
+        //     }
+        // })
 
 
         $(function () {
@@ -534,8 +536,70 @@
         }
 
         function timeclick(id) {
-            $("input[name=time]").prop("checked", false);
-            $("#time"+id).prop("checked", true);
+            if(id < 10) id = "0"+id;
+            if(Number($("#t_first").val()) > 0){
+                if(Number($("#t_second").val()) > 0){
+                    $("input[name=time]").prop("checked", false);
+                    $("#time"+id).prop("checked", true);
+                    $("#t_first").val(id);
+                    $("#t_second").val(-1);
+                    $('#rentBtn').prop("disabled",true);
+                    alert("시작 시간 혹은 종료 시간을 선택해 주세요");
+                }else{
+                    $("#t_second").val(id);
+                    if(Number($("#t_first").val()) < Number($("#t_second").val())){
+                        for($i=Number($("#t_first").val()) ; $i<Number($("#t_second").val()) ;$i++){
+                            if($("#time"+$i).prop("disabled") == true){
+                                $("input[name=time]").prop("checked", false);
+                                $("#t_first").val(-1);
+                                $("#t_second").val(-1);
+                                $('#rentBtn').prop("disabled",true);
+                                alert("이미 예약 되어 있는 시간입니다. 다른 시간을 선택해 주세요");
+                                return false;
+                            }
+                            if($i < 10){
+                                $("#time0"+$i).prop("checked", true);
+                            }else{
+                                $("#time"+$i).prop("checked", true);
+                            }
+                        }
+                    }else if(Number($("#t_first").val()) > Number($("#t_second").val())){
+                        for($i=Number($("#t_second").val()) ; $i<Number($("#t_first").val()) ;$i++){
+                            if($("#time"+$i).prop("disabled") == true){
+                                $("input[name=time]").prop("checked", false);
+                                $("#t_first").val(-1);
+                                $("#t_second").val(-1);
+                                alert("이미 예약 되어 있는 시간입니다. 다른 시간을 선택해 주세요");
+                                $('#rentBtn').prop("disabled",true);
+                                return false;
+                            }
+                            if($i < 10){
+                                $("#time0"+$i).prop("checked", true);
+                            }else{
+                                $("#time"+$i).prop("checked", true);
+                            }
+
+                        }
+                    }
+                    $('#rentBtn').prop("disabled",false);
+                }
+            }else{
+                $("#time"+id).prop("checked", true);
+                $("#t_first").val(id);
+                $('#rentBtn').prop("disabled",true);
+                alert("시작 시간 혹은 종료 시간을 선택해 주세요");
+            }
+            if($("#time"+id).prop("checked") ==  false){ //선택
+                    $("#time"+id).prop("checked", false);
+            }
+            // else{ //취소
+            //     if($("#t_start").val() <= id - 1){
+            //
+            //     }
+            //     $("#time"+id).prop("checked", true);
+            // }
+            // $("input[name=time]").prop("checked", false);
+            // $("#time"+id).prop("checked", true);
         {{--timeClick = 0;--}}
         {{--    @for ($i =$room->room_renting_use_start_date ; $i <$room->room_renting_use_end_date+1 ; $i++)--}}
         {{--    $("#time" + "{{ $i }}").prop("checked", false);--}}
@@ -548,6 +612,21 @@
         {{--    @endfor--}}
         }
 
+        function Rent() {
+            $room_idx = $("input:radio[name='room']:checked").val();
+            $room_name = $("label[for='room_idx"+$room_idx+"']").text();
+            $time_s =  Number($("#t_first").val());
+            $time_end = Number($("#t_second").val());
+            $date = $(".selected").text();
+            $tt = $(".calendar_header").children("h2").text().split(" ");
+            $year = $tt[0].split("년")[0];
+            $month=$tt[1].split("월")[0];
+            if($time_s > $time_end){
+                $time_s =  Number($("#t_second").val());
+                $time_end = Number($("#t_first").val());
+            }
+            alert($room_name+"룸을 "+$year+"년 "+$month+"월 "+$date+"일 "+$time_s+"시 부터 "+$time_end+"시 까지 "+($time_end-$time_s)+"시간 빌림");
+        }
 
     </script>
 @endsection

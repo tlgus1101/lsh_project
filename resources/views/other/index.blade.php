@@ -1,17 +1,19 @@
-<?php $__env->startSection('title'); ?>
+@extends('layouts.app')
 
-<?php $__env->stopSection(); ?>
+@section('title')
 
-<?php $__env->startSection('style'); ?>
+@endsection
+
+@section('style')
     <link rel="stylesheet" href="/css/slick.css">
     <link rel="stylesheet" href="/css/daterangepicker.css">
     <link rel="stylesheet" href="/css/daterangepicker2.css">
     <link rel="stylesheet" href="/css/swiper.min.css">
     <link rel="stylesheet" href="/css/product.css">
     <link rel="stylesheet" href="/css/calendar.css">
-<?php $__env->stopSection(); ?>
+@endsection
 
-<?php $__env->startSection('content'); ?>
+@section('content')
     <style>
         .timeList {
             border-color: rgba(46, 49, 51, 0.27);
@@ -62,26 +64,51 @@
             background-image: none;
             border-color: #4E3188;
         }
+
+        .tbl_new_w .tit2 {
+            text-align: right;
+        }
+        .tbl_new_w .tit2 {
+            height: 30px;
+            margin-bottom: 10px;
+            line-height: 30px;
+        }
+        .tbl_new_w .tit2 span.rent_ok:before {
+            background: white;
+            border: 1px solid #8853c0bf;
+        }
+        .tbl_new_w .tit2 span:before {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            content: '';
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+        .tbl_new_w .tit2 span.rent_no:before {
+            background: #e3e3e3;
+            border: 1px solid #e3e3e3;
+        }
     </style>
 
     <section class="probootstrap-cover overflow-hidden relative"
-             style="background-image: url('<?php echo e($partner->partner_image_route . $partner->partner_image_save_name); ?>'); padding: 2em 0 0"
+             style="background-image: url('{{ $partner->partner_image_route . $partner->partner_image_save_name }}'); padding: 2em 0 0"
              data-stellar-background-ratio="0.5"
              id="section-home">
         <div class="overlay"></div>
         <div class="container top-container">
             <div class="row align-items-center text-center">
                 <div class="col-md">
-                    <h2 class="heading mb-2 display-5 font-light probootstrap-animate"><?php echo e($partner->name); ?></h2>
-                    <input type="hidden" value="<?php echo e($partner->id); ?>" id="partnerId" name="partnerId">
-                    <div class="form-group">
-                        
-                        
-                        <div id="reportrange" class="form-control date-btn">
-                            <i class="fa fa-calendar"></i>&nbsp;
-                            <span id="date"></span> <i class="fa fa-caret-down"></i>
-                        </div>
-                    </div>
+                    <h2 class="heading mb-2 display-5 font-light probootstrap-animate">{{ $partner->name }}</h2>
+                    <input type="hidden" value="{{ $partner->id }}" id="partnerId" name="partnerId">
+{{--                    <div class="form-group">--}}
+{{--                        --}}{{--            <div  class="form-control date-btn" id="openCal">--}}
+{{--                        --}}{{--            </div>--}}
+{{--                        <div id="reportrange" class="form-control date-btn">--}}
+{{--                            <i class="fa fa-calendar"></i>&nbsp;--}}
+{{--                            <span id="date"></span> <i class="fa fa-caret-down"></i>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
                 </div>
             </div>
         </div>
@@ -92,23 +119,24 @@
         <div class="container">
             <div class="sub-header">
                 <div class="swipe-tabs">
-                    <div class="swipe-tab" onclick="roomAjax(<?php echo e($id); ?>)">객실안내/예약</div>
-                    <div class="swipe-tab" onclick="roomInfo(<?php echo e($id); ?>)">숙소정보</div>
-                    
-                    
+{{--                    <div class="swipe-tab" onclick="roomAjax({{ $id }})">객실안내/예약</div>--}}
+{{--                    <div class="swipe-tab" onclick="roomInfo({{ $id }})">숙소정보</div>--}}
+                    {{--          <div class="swipe-tab" id="openCal">달력</div>--}}
+                    {{--          <div class="swipe-tab">리뷰</div>--}}
                 </div>
             </div>
         </div>
     </section>
 
-    
-    
-    
-    
+    {{--  <section class="probootstrap_section probootstrap_lg_pt-50" id="section-city-guides" >--}}
+    {{--    <div class="container" id="roomList">--}}
+    {{--    </div>--}}
+    {{--  </section>--}}
     <!-- END section -->
 
-    <div class="container" id="list" name="list">
+    <div class="container m-3" id="list" name="list">
     </div>
+
     <div class="container">
         <div class="calendar-section">
             <div class="row">
@@ -128,6 +156,10 @@
                     </div>
                 </div>
                 <div class="col-sm-6">
+                    <div class="tbl_new_w">
+                    <div class="tit2">
+                        <span class="rent_ok">신청가능</span> <span class="rent_no">신청불가</span>
+                    </div></div>
                     <div class="calendar calendar-second">
                         <table class="timeList" border="1px" width="100%">
                             <caption>대관장소, 시간 테이블입니다.</caption>
@@ -140,34 +172,34 @@
                             </tr>
                             </thead>
                             <tbody id="timeList_body">
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
+                            {{--                          <tr align="center">--}}
+                            {{--                              <td>--}}
+                            {{--                                  <a href="#" class="btn-link" >--}}
+                            {{--                                      <span>아카데미룸</span>--}}
+                            {{--                                  </a>--}}
+                            {{--                              </td>--}}
+                            {{--                              <td width="70%">--}}
+                            {{--                                  <div class="select_time" style="margin: 5px">--}}
+                            {{--                                      @for($i=0  , $j = 1 ;$i<=24 ;$i++ )--}}
+                            {{--                                          <div class="time">--}}
+                            {{--                                              @if($i<10)--}}
+                            {{--                                                  <div class="time">--}}
+                            {{--                                                      <input class="time" type="checkbox" name="time"--}}
+                            {{--                                                             id="time{{ $i }}" onclick="timeclick('{{ $i }}')">--}}
+                            {{--                                                      <label for="time{{ $i }}">0{{ $i }}:00</label>--}}
+                            {{--                                                  </div>--}}
+                            {{--                                              @else--}}
+                            {{--                                                  <div class="time">--}}
+                            {{--                                                      <input class="time" type="checkbox" name="time"--}}
+                            {{--                                                             id="time{{ $i }}" onclick="timeclick('{{ $i }}')">--}}
+                            {{--                                                      <label for="time{{ $i }}">{{ $i }}:00</label>--}}
+                            {{--                                                  </div>--}}
+                            {{--                                              @endif--}}
+                            {{--                                          </div>--}}
+                            {{--                                      @endfor--}}
+                            {{--                                  </div>--}}
+                            {{--                              </td>--}}
+                            {{--                          </tr>--}}
                             </tbody>
                         </table>
                         <p class="bul-mark2">각 공간명을 클릭하시면 시설정보를 확인하실 수 있습니다.</p>
@@ -175,7 +207,7 @@
                             시간을 연속으로 선택 하여 주세요.
                             <strong class="color-black">(시작시간 종료시간을 선택해 주세요)</strong>
                         </p>
-                        <input class="btn" type="button" value="대여하기" disabled="true" onclick="Rent()" id="rentBtn">
+                        <p align="right"><input class="btn" type="button" value="대여하기" disabled="true" onclick="reserve()" id="rentBtn"></p>
                     </div>
                 </div>
             </div> <!-- End Row -->
@@ -183,15 +215,15 @@
     </div> <!-- End Container -->
 
 
-<?php $__env->stopSection(); ?>
+@endsection
 
-<?php $__env->startSection('scripts'); ?>
+@section('scripts')
     <script src="/js/vue.js"></script>
     <script src="/js/slick.min.js"></script>
     <script src="/js/slick.min.js"></script>
     <script src="/js/moment.min.js"></script>
     <script src="/js/daterangepicker.js"></script>
-    
+    {{--  <script src="/js/daterangepicker2.js"></script>--}}
     <script src="/js/swiper.min.js"></script>
     <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
     <script type="text/javascript"
@@ -221,7 +253,7 @@
         $(function () {
             'use strict';
             resetList(moment().subtract(0, 'days').format('YYYYMMDD'), moment().subtract(-1, 'days').format('YYYYMMDD'));
-                
+                {{--roomAjax({{ $id }});--}}
             var $swipeTabsContainer = $('.swipe-tabs'),
                 $swipeTabs = $('.swipe-tab'),
                 currentIndex = 0,
@@ -342,7 +374,7 @@
             //
             // cb(start, end);
 
-            
+            {{--//resetList('{{ date('Y-m-d') }}','{{ date('Y-m-d') }}');--}}
 
             $(".applyBtn").on('click', function (event) {
                 var dates = $('.drp-selected').html().split('~');
@@ -356,41 +388,41 @@
                 end = end.replace("일", "");
 
                 resetList(start, end);
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
+                {{--$.ajax({--}}
+                {{--    url: '/detail',--}}
+                {{--    type: "get",--}}
+                {{--    dataType: "json", data: {--}}
+                {{--        'id': "{{ $id }}",--}}
+                {{--        'room_product_start_date' : $dates[0],--}}
+                {{--        'room_product_end_date' : $dates[0],--}}
+                {{--        'json': true,--}}
+                {{--        "_token": "{{{ csrf_token() }}}"--}}
+                {{--    },--}}
+                {{--}).done(function (response) {--}}
+                {{--    var data = response.datas;--}}
+                {{--    $("#detail").html(data);--}}
+                {{--    $("#exampleModal1").modal("show");--}}
+                {{--});--}}
             });
 
         });
 
-        function reserve(type, idx) {
-            $dates = $('#date').html().split('~');
-
-            $start = $dates[0].replace(".", "");
-            $start = $start.replace(".", "");
-            $end = $dates[1].replace(".", "");
-            $end = $end.replace(".", "");
-
-            var url = "";
-            if (type == 'renting') {
-                url = "/reserve?idx=" + idx + "&start=" + $start + "&end=" + $end + "&type=1";
-            } else if (type == 'lodgment') {
-                url = "/reserve?idx=" + idx + "&start=" + $start + "&end=" + $end + "&type=2";
-            } else {
-                url = "/reserve?idx=" + idx + "&start=" + $start + "&end=" + $end + "&type=3";
+        function reserve() {
+            $room_idx = $("input:radio[name='room']:checked").val();
+            $room_name = $("label[for='room_idx"+$room_idx+"']").text();
+            $time_s =  Number($("#t_first").val());
+            $time_end = Number($("#t_second").val());
+            $date = $(".selected").text();
+            $tt = $(".calendar_header").children("h2").text().split(" ");
+            $year = $tt[0].split("년")[0];
+            $month=$tt[1].split("월")[0];
+            if($time_s > $time_end){
+                $time_s =  Number($("#t_second").val());
+                $time_end = Number($("#t_first").val());
             }
+            alert($room_name+"룸을 "+$year+"년 "+$month+"월 "+$date+"일 "+$time_s+"시 부터 "+$time_end+"시 까지 "+($time_end-$time_s)+"시간 빌림");
+
+            url = "/reserve?idx="+$room_idx+"&year="+$year+"&month="+$month+"&date="+$date+"&start="+$time_s+"&end="+$time_end;
             window.location = url;
         }
 
@@ -414,7 +446,7 @@
                 type: "post",
                 dataType: "json", data: {
                     'id': id,
-                    "_token": "<?php echo e(csrf_token()); ?>"
+                    "_token": "{{{ csrf_token() }}}"
                 },
             }).done(function (response) {
                 var data = response.datas;
@@ -438,7 +470,7 @@
                         'year': year,
                         'month': month,
                         'date': date,
-                        "_token": "<?php echo e(csrf_token()); ?>"
+                        "_token": "{{{ csrf_token() }}}"
                     },
                 }).done(function (response) {
                     var data = response.datas;
@@ -452,11 +484,11 @@
                 url: '/detail',
                 type: "get",
                 dataType: "json", data: {
-                    'id': "<?php echo e($id); ?>",
+                    'id': "{{ $id }}",
                     'room_product_start_date': start,
                     'room_product_end_date': end,
                     'json': true,
-                    "_token": "<?php echo e(csrf_token()); ?>"
+                    "_token": "{{{ csrf_token() }}}"
                 },
             }).done(function (response) {
                 var data = response.datas;
@@ -598,16 +630,16 @@
             // }
             // $("input[name=time]").prop("checked", false);
             // $("#time"+id).prop("checked", true);
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        {{--timeClick = 0;--}}
+        {{--    @for ($i =$room->room_renting_use_start_date ; $i <$room->room_renting_use_end_date+1 ; $i++)--}}
+        {{--    $("#time" + "{{ $i }}").prop("checked", false);--}}
+        {{--    @endfor--}}
+        {{--        @for ($i = 0; $i <$room->room_renting_use_time; $i++)--}}
+        {{--    if ($("#time" + (Number(id) + {{ $i }})).prop("disabled") == false) {--}}
+        {{--        $("#time" + (Number(id) + {{ $i }})).prop("checked", true);--}}
+        {{--        timeClick++;--}}
+        {{--    }--}}
+        {{--    @endfor--}}
         }
 
         function Rent() {
@@ -627,6 +659,4 @@
         }
 
     </script>
-<?php $__env->stopSection(); ?>
-
-<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Users/isihyeon/Documents/GitHub/lsh_project/resources/views/product/detail.blade.php ENDPATH**/ ?>
+@endsection

@@ -72,8 +72,8 @@ class DetailController extends Controller
         
         $str_list_de = "<div class='room'>
                         <input class='room' type='radio' name='room'
-                               id='room_idx{{ %s }}' value='%s'/>
-                            <label for='room_idx{{ %s }}'>%s</label>
+                               id='room_idx%s' value='%s'/>
+                            <label for='room_idx%s'>%s</label>
                        </div>";
       
                                 
@@ -165,24 +165,24 @@ class DetailController extends Controller
           foreach ($room_product as $key => $value2) {
             if ($diff_date <= $value2->count) {
 
-              if ($value2->room_product_sale_type == "대실") {
-                $datas_pro .= sprintf($renting
-                  , $value2->room_renting_use_time
-                  , $value2->room_renting_use_start_date . "시~" . $value2->room_renting_use_end_date . "시"
-                  , $value2->room_product_price >= $value2->room_product_sale_price ? "₩" . number_format($value2->room_product_price) : " "
-                  , number_format($diff_date < 2 ? $value2->room_product_sale_price : $value2->min_price)
-                  , $value2->room_idx
-                );
-              } else if ($value2->room_product_sale_type == "숙박") {
-                // if ($diff_date < 2) {
-                $datas_pro .= sprintf($lodgment
-                  , $value2->room_lodgment_use_start_date
-                  , $value2->room_lodgment_use_end_date
-                  , $value2->room_product_price > $value2->room_product_sale_price ? "₩" . number_format($value2->room_product_price) : " "
-                  , number_format($diff_date < 2 ? $value2->room_product_sale_price : $value2->min_price)
-                  , $value2->room_idx
-                );
-              } else {
+//              if ($value2->room_product_sale_type == "대여") {
+//                $datas_pro .= sprintf($renting
+//                  , $value2->room_renting_use_time
+//                  , $value2->room_renting_use_start_date . "시~" . $value2->room_renting_use_end_date . "시"
+//                  , $value2->room_product_price >= $value2->room_product_sale_price ? "₩" . number_format($value2->room_product_price) : " "
+//                  , number_format($diff_date < 2 ? $value2->room_product_sale_price : $value2->min_price)
+//                  , $value2->room_idx
+//                );
+//              } else if ($value2->room_product_sale_type == "숙박") {
+//                // if ($diff_date < 2) {
+//                $datas_pro .= sprintf($lodgment
+//                  , $value2->room_lodgment_use_start_date
+//                  , $value2->room_lodgment_use_end_date
+//                  , $value2->room_product_price > $value2->room_product_sale_price ? "₩" . number_format($value2->room_product_price) : " "
+//                  , number_format($diff_date < 2 ? $value2->room_product_sale_price : $value2->min_price)
+//                  , $value2->room_idx
+//                );
+//              } else {
                 $datas_pro .= sprintf($rent
                   , $value2->room_rent_use_time
                   , $value2->room_rent_use_start_date . "~" . $value2->room_rent_use_end_date
@@ -190,7 +190,7 @@ class DetailController extends Controller
                   , number_format($diff_date < 2 ? $value2->room_product_sale_price : $value2->min_price)
                   , $value2->room_idx
                 );
-              }
+//              }
             }
           }
           $list_temp .= sprintf($str_list_de
@@ -219,7 +219,7 @@ class DetailController extends Controller
       return response()->json(['datas' => $datas_rs ,'list' => $list]);
     }
 
-    return view('product.detail', [
+    return view('other.index', [
       'id' => $request->input('id'),
       'partner' => $partner
     ]);
@@ -324,7 +324,8 @@ class DetailController extends Controller
                         <div class="select_time" style="margin: 5px">
                             %s
                         </div>
-                    </td>
+              
+                  </td>
                 </tr>';
      
         $btn_list = "";
@@ -355,7 +356,7 @@ class DetailController extends Controller
                 ->join('room', 'room.room_idx', '=', 'room_product.room_idx')
                 ->where('room.room_idx', $request->input('room_idx'))
                 ->whereDate('room_product_start_date', $in_date)
-                ->where('room_product.room_product_sale_type', "대실")
+                ->where('room_product.room_product_sale_type', "대여")
                 ->groupBy('room.room_idx')
      ->first();//->dd(DB::getQueryLog());
           
@@ -380,7 +381,7 @@ class DetailController extends Controller
 //            $out_date = $request->input('start');
 //        }
      
-            for ($i = $room_product->room_renting_use_start_date; $i < $room_product->room_renting_use_end_date; $i++){
+            for ($i = $room_product->room_rent_use_start_date; $i < $room_product->room_rent_use_end_date; $i++){
                 if($i < 10){
             $btn_list .= sprintf($btn
                                                    , "0".$i
@@ -399,7 +400,6 @@ class DetailController extends Controller
             
             $datas_rs .= sprintf($str
               , $room_product->room_name
-                                 ,$btn_list
                                  ,$btn_list
                                  
             );
